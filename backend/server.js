@@ -9,7 +9,14 @@ dotenv.config();
 const app=express()
 connectDB()
 
-app.use(cors())
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://login-frosh.vercel.app/",
+    ],
+  })
+);
 app.use(express.json())
 app.get("/",(req,res)=>{
     res.send("API running")
