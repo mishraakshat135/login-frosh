@@ -15,7 +15,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://login-frosh.vercel.app/",
+      "https://login-frosh.vercel.app",
     ],
   })
 );
