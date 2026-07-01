@@ -33,12 +33,12 @@ export default function Events() {
   }
 
   return (
-    <div className="p-10">
+    <div className=" p-10">
       <h1 className="text-3xl font-bold mb-6">
         Events
       </h1>
 
-      <div className="grid grid-cols-3 gap-6">
+      <div className="flex flex-col md:flex-row gap-6">
         {events.map((event) => (
           <div key={event._id} className="border rounded-xl p-5 shadow">
             <h2 className="text-xl font-bold">

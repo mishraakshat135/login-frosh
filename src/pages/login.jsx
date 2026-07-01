@@ -1,11 +1,11 @@
 import { useState } from "react";
-import axios from "axios"
+import api from "../services/api"
 import {useNavigate} from 'react-router-dom'
 
 
 export default function Login() {
 
-  const API_URL = import.meta.env.VITE_API_URL;
+
 
   const navigate = useNavigate()
 
@@ -26,7 +26,7 @@ export default function Login() {
 
     try {
     const res = await axios.post(
-      `${API_URL}/api/auth/login`,
+      "/auth/login",
       formData
     );
     localStorage.setItem(
