@@ -13,14 +13,15 @@ connectDB()
 
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173",
-      "http://localhost:5174",
-      "https://login-frosh.vercel.app",
-      "https://login-frosh-admin.vercel.app",
-      "https://login-frosh-g7vcqlle5-akshat-mishra-s-projects135.vercel.app",
-      "https://login-frosh-admin-itvc0qnwi-akshat-mishra-s-projects135.vercel.app"
-    ],
+    origin: (origin, callback) =>{
+      if(!origin) 
+        return callback(null, true)
+      if(origin === "http://localhost:5173" || origin === "http://localhost:5174" || origin.endsWith(".vercel.app"))
+      {
+        return callback(null, true)
+      }
+      return callback(new Error("Not allowed by cors"))
+    },
     credentials:true
   })
 );
