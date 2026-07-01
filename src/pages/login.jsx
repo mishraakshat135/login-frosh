@@ -25,7 +25,7 @@ export default function Login() {
     e.preventDefault();
 
     try {
-    const res = await axios.post(
+    const res = await api.post(
       "/auth/login",
       formData
     );
