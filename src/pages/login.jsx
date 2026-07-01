@@ -26,7 +26,7 @@ export default function Login() {
 
     try {
     const res = await api.post(
-      "api/auth/login",
+      "/api/auth/login",
       formData
     );
     localStorage.setItem(
