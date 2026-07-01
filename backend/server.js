@@ -17,6 +17,7 @@ app.use(
       "http://localhost:5173",
       "http://localhost:5174",
       "https://login-frosh.vercel.app",
+      "https://login-frosh-admin.vercel.app",
     ],
     credentials:true
   })
