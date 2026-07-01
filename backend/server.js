@@ -18,6 +18,8 @@ app.use(
       "http://localhost:5174",
       "https://login-frosh.vercel.app",
       "https://login-frosh-admin.vercel.app",
+      "https://login-frosh-g7vcqlle5-akshat-mishra-s-projects135.vercel.app",
+      "https://login-frosh-admin-itvc0qnwi-akshat-mishra-s-projects135.vercel.app"
     ],
     credentials:true
   })
