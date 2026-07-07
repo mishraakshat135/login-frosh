@@ -74,7 +74,7 @@ export default function Hero({ scrollHeight = '400vh' }) {
             start: "top top",
             end: 'bottom bottom',
             onEnter:()=>{
-                window.lenis.options.duration = 0.5;
+                window.lenis.options.duration = 3;
             },
             onLeave: ()=>{
                 window.lenis.options.duration = 3;
