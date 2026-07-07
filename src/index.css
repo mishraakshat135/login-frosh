@@ -1,1 +1,41 @@
 @import "tailwindcss";
+
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+@keyframes hero-drift {
+    0%, 100% {
+        filter: saturate(1.05) brightness(0.95);
+    }
+    50% {
+        filter: saturate(1.22) brightness(1.08);
+    }
+}
+
+@keyframes astronaut-glow {
+    0%, 100% {
+        transform: translate3d(0, 0, 0) rotate(-2deg);
+        opacity: 0.45;
+        box-shadow: 0 0 34px rgba(125, 231, 255, 0.18);
+    }
+    50% {
+        transform: translate3d(10px, -22px, 0) rotate(3deg);
+        opacity: 0.9;
+        box-shadow: 0 0 58px rgba(125, 231, 255, 0.34);
+    }
+}
+
+.animate-hero-drift {
+    animation: hero-drift 7s ease-in-out infinite;
+}
+
+.animate-astronaut-glow {
+    animation: astronaut-glow 5.8s ease-in-out infinite;
+}
+
+.animate-astronaut-glow-delayed {
+    animation: astronaut-glow 6.6s ease-in-out infinite;
+    animation-delay: -2.4s;
+}
