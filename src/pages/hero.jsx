@@ -6,6 +6,7 @@ import Events from "./Events"
 import About from "./aboutUs"
 import Map from "./map"
 import Sponsors from "./sponsors"
+import { gsap, ScrollTrigger } from "../lib/gsap"
 
 const user = JSON.parse(localStorage.getItem("user"));
 const FRAME_COUNT = 241;
@@ -16,9 +17,15 @@ export default function Hero({ scrollHeight = '400vh' }) {
     const canvasRef = useRef(null)
     const imagesRef = useRef([]);
     const currentFrameRef = useRef(0)
-    const [frame, setFrame] = useState(0)
+    const frameRef = useRef(0)
+    const [showWelcome, setShowWelcome] = useState(false)
+    const welcomeRef = useRef(false)
 
     useEffect(() => {
+        gsap.from(canvasRef.current, {
+            opacity: 0,
+            duration: 1.2,
+        })
         const canvas = canvasRef.current;
         const wrapper = wrapperRef.current
         const ctx = canvas.getContext('2d');
@@ -53,33 +60,7 @@ export default function Hero({ scrollHeight = '400vh' }) {
             drawFrame(currentFrameRef.current);
         }
 
-        function updateFrameFromScroll() {
-            const rect = wrapper.getBoundingClientRect();
-            const scrollableHeight = wrapper.offsetHeight - window.innerHeight
-            const scrolled = -rect.top;
-            const progress = Math.min(Math.max(scrolled / scrollableHeight, 0), 1)
 
-
-            const frameIndex = Math.min(
-                FRAME_COUNT - 1,
-                Math.floor(progress * (FRAME_COUNT - 1))
-            );
-
-            currentFrameRef.current = frameIndex
-            setFrame(frameIndex)
-            drawFrame(frameIndex)
-        }
-
-        let ticking = false;
-        function onScroll() {
-            if (!ticking) {
-                requestAnimationFrame(() => {
-                    updateFrameFromScroll();
-                    ticking = false;
-                })
-                ticking = true;
-            }
-        }
 
         for (let i = 1; i <= FRAME_COUNT; i++) {
             const img = new Image();
@@ -88,13 +69,45 @@ export default function Hero({ scrollHeight = '400vh' }) {
             imagesRef.current[i - 1] = img;
         }
 
+        const trigger = ScrollTrigger.create({
+            trigger: wrapperRef.current,
+            start: "top top",
+            end: 'bottom bottom',
+            onEnter:()=>{
+                window.lenis.options.duration = 0.5;
+            },
+            onLeave: ()=>{
+                window.lenis.options.duration = 3;
+            },
+            scrub: true,
+            onUpdate: (self) => {
+                const frameIndex = Math.floor(
+                    self.progress * (FRAME_COUNT - 1)
+                )
+                currentFrameRef.current = frameIndex;
+                frameRef.current = frameIndex;
+
+                drawFrame(frameIndex)
+
+                if (frameIndex >= 200 && !welcomeRef.current) {
+                    welcomeRef.current = true;
+                    setShowWelcome(true);
+                }
+
+                if (frameIndex < 200 && welcomeRef.current) {
+                    welcomeRef.current = false;
+                    setShowWelcome(false);
+                }
+            }
+        })
+
         resizeCanvas();
         window.addEventListener('resize', resizeCanvas);
-        window.addEventListener('scroll', onScroll, { passive: true });
 
         return () => {
-            window.removeEventListener('resize', resizeCanvas);
-            window.removeEventListener('scroll', onScroll);
+            trigger.kill()
+            window.removeEventListener("resize", resizeCanvas)
+            ScrollTrigger.getAll().forEach(trigger => trigger.kill())
         }
     }, [])
 
@@ -105,7 +118,7 @@ export default function Hero({ scrollHeight = '400vh' }) {
             <section ref={wrapperRef} className="relative" style={{ height: scrollHeight }}>
                 <div className="fixed top-0 h-screen w-full overflow-hidden flex items-center justify-center">
                     <AnimatePresence>
-                        {frame >= 200 && (
+                        {showWelcome && (
                             <motion.div
                                 initial={{
                                     opacity: 0,

@@ -4,9 +4,11 @@ import { useEffect } from "react";
 export default function SmoothScroll() {
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 3,
+      duration: 1,
       smoothWheel: true,
     });
+
+    window.lenis = lenis
 
     let frameId = 0;
     const raf = (time) => {
