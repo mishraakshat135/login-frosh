@@ -8,8 +8,8 @@ import Map from "./map"
 import Sponsors from "./sponsors"
 
 const user = JSON.parse(localStorage.getItem("user"));
-const FRAME_COUNT = 121;
-const FRAME_PATH = (i) => `/webp_frames/frame_${String(i).padStart(3, '0')}.webp`;
+const FRAME_COUNT = 241;
+const FRAME_PATH = (i) => `/png_frames/frame_${String(i).padStart(3, '0')}.png`;
 
 export default function Hero({ scrollHeight = '400vh' }) {
     const wrapperRef = useRef(null);
@@ -105,7 +105,7 @@ export default function Hero({ scrollHeight = '400vh' }) {
             <section ref={wrapperRef} className="relative" style={{ height: scrollHeight }}>
                 <div className="fixed top-0 h-screen w-full overflow-hidden flex items-center justify-center">
                     <AnimatePresence>
-                        {frame >= 90 && (
+                        {frame >= 200 && (
                             <motion.div
                                 initial={{
                                     opacity: 0,
