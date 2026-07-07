@@ -9,7 +9,7 @@ import Sponsors from "./sponsors"
 
 const user = JSON.parse(localStorage.getItem("user"));
 const FRAME_COUNT = 241;
-const FRAME_PATH = (i) => `/png_frames/frame_${String(i).padStart(3, '0')}.png`;
+const FRAME_PATH = (i) => `/better_webp_frames/frame_${String(i).padStart(3, '0')}.webp`;
 
 export default function Hero({ scrollHeight = '400vh' }) {
     const wrapperRef = useRef(null);

@@ -1,11 +1,11 @@
 from PIL import Image
 from pathlib import Path
 
-input_folder = Path(r"C:\Users\ASUS\Desktop\projects building\frosh login\freshers side\public\frames")
-output_folder = Path(r"C:\Users\ASUS\Desktop\projects building\frosh login\freshers side\public\webp_frames")
+input_folder = Path(r"C:\Users\ASUS\Desktop\projects building\frosh login\freshers side\public\png_frames")
+output_folder = Path(r"C:\Users\ASUS\Desktop\projects building\frosh login\freshers side\public\better_webp_frames")
 output_folder.mkdir(exist_ok=True)
 
-extensions = ["*.jpg"]
+extensions = ["*.jpg", "*.png"]
 count = 0
 
 for ext in extensions:
