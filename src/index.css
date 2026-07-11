@@ -1,14 +1,48 @@
-@import "tailwindcss";
-
-
-::-webkit-scrollbar {
-    display: none;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
 body {
-  overflow-x: hidden;
+  cursor: none;
+}
+
+* {
+  cursor: none;
+}
+
+.cursor-main {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #22d3ee;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+}
+
+.cursor-trail {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: rgba(34, 211, 238, 0.9);
+  filter: blur(12px);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  z-index: 99998;
+}
+
+.cursor-ripple{
+    position: fixed;
+    width:24px;
+    height:24px;
+    left:0;
+    top:0;
+    border-radius:50%;
+    pointer-events:none;
+    transform:translate(-50%,-50%) scale(0);
+    z-index:99997;
+    filter:blur(1px);
 }

@@ -10,23 +10,23 @@ export default function Home() {
   return (
     <main className="min-h-screen overflow-x-hidden bg-black text-white scroll-smooth">
       <>
-        <section id="home">
+        <section id="home" data-cursor="#22d3ee">
           <Hero />
         </section>
 
-        <section id="events">
+        <section id="events" data-cursor="#f97316">
           <Events />
         </section>
 
-        <section id="about">
+        <section id="about" data-cursor="#a855f7" >
           <About />
         </section>
 
-        <section id="map">
+        <section id="map" data-cursor="#22c55e">
           <Map />
         </section>
 
-        <section id="sponsors">
+        <section id="sponsors" data-cursor="#facc15">
           <Sponsors />
         </section>
       </>

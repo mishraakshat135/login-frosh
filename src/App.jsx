@@ -11,12 +11,14 @@ import Map from "./pages/map";
 import About from "./pages/aboutUs";
 import Sponsors from "./pages/sponsors";
 import SmoothScroll from "./components/SmoothScroll";
+import Cursor from "./components/cursor"
 
 function App() {
   const location = useLocation()
   const hideNavbar = location.pathname === "/"
   return (
     <>
+    <Cursor />
     <SmoothScroll />
     {!hideNavbar && <Navbar />}
      <Routes>
