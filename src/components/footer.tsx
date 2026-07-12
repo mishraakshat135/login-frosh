@@ -62,17 +62,21 @@ export default function Home() {
         {/* Footer Content */}
         <div style={{ position: "relative", zIndex: 1 }}>
           <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1fr auto 1fr",
-              alignItems: "center",
-              gap: "30px",
-              maxWidth: "1200px",
-              margin: "0 auto",
-            }}
+          className="flex flex-col md:flex-row items-center justify-center md:gap-10"
+            // style={{
+            //   display: "grid",
+            //   gridTemplateColumns: "1fr auto 1fr",
+            //   alignItems: "center",
+            //   gap: "30px",
+            //   maxWidth: "1200px",
+            //   margin: "0 auto",
+            // }}
           >
             {/* Contact Info - Left Side */}
-            <div style={{ textAlign: "left" }}>
+            <div 
+            className ="text-left md:mr-55"
+            //style={{ textAlign: "left", margin: "0 80px 0 20px" }}
+            >
               <h1 style={{ fontSize: "22px", fontWeight: 700, margin: "0 0 12px", color: "#5ee1e6" }}>
                 Contact Us
               </h1>
@@ -103,12 +107,16 @@ export default function Home() {
             </div>
 
             {/* Logo - Center */}
-            <div style={{ 
-              textAlign: "center",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center"
-            }}>
+            <div
+              className="text-center flex flex-column items-cneter"
+            // style={{ 
+            //   textAlign: "center",
+            //   display: "flex",
+            //   flexDirection: "column",
+            //   alignItems: "center",
+            //   margin: "0 0 0 120px"
+            // }}
+            >
               <img
                 src="/Logo.webp"
                 alt="Frosh Logo 2026"
@@ -119,14 +127,7 @@ export default function Home() {
 
             {/* Hyperlinks - Right Side - STRAIGHT HORIZONTAL LINE */}
             <div
-              style={{
-                color: "white",
-                display: "flex",
-                justifyContent: "flex-end",
-                alignItems: "center",
-                gap: "12px",
-                flexWrap: "nowrap",
-              }}
+              className="flex flex-col md:flex-row justify-end items-cneter gap-3 flex-nowrap "
             >
               <a 
                 href="https://www.instagram.com/froshtiet" 
