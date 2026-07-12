@@ -13,6 +13,7 @@ import Sponsors from "./pages/sponsors";
 import SmoothScroll from "./components/SmoothScroll";
 import Cursor from "./components/cursor"
 import Footer from "./components/footer"
+import CampusMap from "./pages/CampusMap"
 
 function App() {
   const location = useLocation()
@@ -30,6 +31,7 @@ function App() {
       <Route path="/about" element={<About />} />
       <Route path="/sponsors" element={<Sponsors />} />
       <Route path="/mytickets" element={<MyTickets />} />
+      <Route path="/campusmap" element={<CampusMap />} />
     </Routes>
     <Footer />
     </>

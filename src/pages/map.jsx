@@ -3,6 +3,7 @@ import { MapPin, Navigation, TicketCheck } from "lucide-react";
 import { useRef } from "react";
 import MapBg from "../assets/MapBg.webp";
 import mapImage from "../assets/map.webp";
+import { useNavigate } from "react-router-dom";
 
 export default function Map() {
     const sectionRef = useRef(null);
@@ -13,6 +14,7 @@ export default function Map() {
     const x = useTransform(scrollYProgress, [0, 0.48, 1], ["72vw", "0vw", "-72vw"]);
     const opacity = useTransform(scrollYProgress, [0, 0.22, 0.76, 1], [0, 1, 1, 0]);
     const rotate = useTransform(scrollYProgress, [0, 0.48, 1], [8, 0, -8]);
+    const navigate = useNavigate()
 
     return (
         <section id="map" ref={sectionRef} className="relative flex min-h-[130vh] items-center justify-center overflow-hidden bg-cover bg-center px-5 py-28 text-white"
@@ -27,9 +29,9 @@ export default function Map() {
             <motion.div style={{ x, opacity, rotate }} className="relative z-10 w-full max-w-4xl rounded-lg border border-cyan-200/55 bg-black/54 p-6 backdrop-blur-2xl shadow-[0_0_70px_rgba(34,211,238,0.24),0_28px_90px_rgba(0,0,0,0.62)] md:p-9">
                 <div className="pointer-events-none absolute -inset-px rounded-lg bg-linear-to-r from-cyan-200/35 via-transparent to-amber-200/35 opacity-70" />
                 <p className="text-xs mb-9 uppercase tracking-[0.5em] text-cyan-100/80">
-                    Map
+                    Click the Map for better experience
                 </p>
-                <img src={mapImage} className="h-85 w-full rounded-md  opacity-90 saturate-125" />
+                <img onClick={()=> navigate("/campusmap")} src={mapImage} className="h-85 w-full rounded-md  opacity-90 saturate-125" />
             </motion.div>
         </section>
     )
