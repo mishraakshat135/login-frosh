@@ -489,7 +489,7 @@ export default function CampusMap() {
           >
             <div className="cm-map-frame" ref={mapFrameRef}>
               <img
-                src="public/campus_images/campus-map.jpg"
+                src="/campus_images/campus-map.jpg"
                 alt="Thapar Institute campus map"
                 className="cm-map-image"
                 draggable={false}
