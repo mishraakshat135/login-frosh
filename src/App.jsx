@@ -14,6 +14,7 @@ import SmoothScroll from "./components/SmoothScroll";
 import Cursor from "./components/cursor"
 import Footer from "./components/footer"
 import CampusMap from "./pages/CampusMap"
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   const location = useLocation()
@@ -21,6 +22,7 @@ function App() {
   return (
     <>
     <Cursor />
+    <ScrollToTop />
     <SmoothScroll />
     {!hideNavbar && <Navbar />}
      <Routes>
