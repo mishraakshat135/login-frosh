@@ -41,7 +41,7 @@ export default function CampusMap() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [imageIndex, setImageIndex] = useState(0);
 
-  const currentImages = activeLocation?.images?.length ? activeLocation.images : ["campus-map.jpg"];
+  const currentImages = activeLocation?.images?.length ? activeLocation.images : ["campus-map.webp"];
   const hasGallery = currentImages.length > 1;
 
   const showTooltip = useCallback((e: React.MouseEvent | React.FocusEvent, loc: Location) => {
@@ -489,7 +489,7 @@ export default function CampusMap() {
           >
             <div className="cm-map-frame" ref={mapFrameRef}>
               <img
-                src="/campus_images/campus-map.jpg"
+                src="/campus_images/campus-map.webp"
                 alt="Thapar Institute campus map"
                 className="cm-map-image"
                 draggable={false}
