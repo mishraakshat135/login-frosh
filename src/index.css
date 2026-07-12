@@ -1,9 +1,7 @@
-body {
-  cursor: none;
-}
 
-* {
-  cursor: none;
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 .cursor-main {
