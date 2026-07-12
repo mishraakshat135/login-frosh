@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom"
 import { Menu, X, LogOut, ChevronDown, User } from "lucide-react"
+import Logo from "../../public/Logo.webp"
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -131,13 +132,11 @@ export default function Navbar() {
     <>
       <header
         className={`fixed top-6 left-1/2 z-50 w-[92%] max-w-7xl -translate-x-1/2 transition duration-500 ${hidden ? "-translate-y-28 opacity-0" : "translate-y-0 opacity-100"}`}>
-        <nav className="relative  flex  items-center justify-between rounded-full border border-white/10 bg-white/6 backdrop-blur-3xl px-8 py-4 shadow-[0_8px_50px_rgba(0,0,0,0.45)] overflow-visible" >
+        <nav className="relative  flex  items-center justify-between rounded-full border border-white/10 bg-white/6 backdrop-blur-3xl px-8 shadow-[0_8px_50px_rgba(0,0,0,0.45)] overflow-visible" >
           <div className="absolute inset-0 bg-linear-to-r from-cyan-400/5 via-transparent to-orange-500/5 pointer-events-none" />
 
           <NavLink to="/home" className="relative z-10 flex items-center gap-3 group">
-            <span className=" text-white font-semibold tracking-[0.35em] uppercase text-sm ">
-              FROSH
-            </span>
+              <img className="w-20 " src={Logo} />
           </NavLink>
 
           <div className="hidden lg:flex items-center gap-10 relative z-10">

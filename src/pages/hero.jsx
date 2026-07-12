@@ -20,6 +20,7 @@ export default function Hero({ scrollHeight = '400vh' }) {
     const frameRef = useRef(0)
     const [showWelcome, setShowWelcome] = useState(false)
     const welcomeRef = useRef(false)
+    const heroRef = useRef(null)
 
     useEffect(() => {
         gsap.from(canvasRef.current, {
@@ -73,6 +74,8 @@ export default function Hero({ scrollHeight = '400vh' }) {
             trigger: wrapperRef.current,
             start: "top top",
             end: 'bottom bottom',
+            pin: heroRef.current,
+            scrub: true,
             onEnter:()=>{
                 window.lenis.options.duration = 3;
             },
@@ -116,7 +119,7 @@ export default function Hero({ scrollHeight = '400vh' }) {
             <Intro />
             <LogoSplit />
             <section ref={wrapperRef} className="relative" style={{ height: scrollHeight }}>
-                <div className="fixed top-0 h-screen w-full overflow-hidden flex items-center justify-center">
+                <div ref={heroRef} className=" h-screen w-full overflow-hidden flex items-center justify-center">
                     <AnimatePresence>
                         {showWelcome && (
                             <motion.div
@@ -138,7 +141,7 @@ export default function Hero({ scrollHeight = '400vh' }) {
                                     duration: 1,
                                     ease: [0.22, 1, 0.36, 1],
                                 }}
-                                className="fixed inset-0 flex items-center justify-center pointer-events-none z-50">
+                                className="absolute inset-0 flex items-center justify-center pointer-events-none z-50">
                                 <div className="relative">
 
                                     <motion.div
@@ -163,13 +166,11 @@ export default function Hero({ scrollHeight = '400vh' }) {
                                         }}
                                         className="flex flex-col text-center rounded-3xl border  border-cyan-300/60  bg-white/5 backdrop-blur-xl px-14 py-10" >
 
-                                        <h1 className="text-6xl md:text-7xl font-bold tracking-[12px] text-white">
+                                        <h1 className="text-xl md:text-4xl font-bold tracking-[12px] text-white">
                                             WELCOME
                                         </h1>
 
-                                        <h2 className="mt-5 text-4xl md:text-5xl font-light tracking-[8px] text-cyan-300">
-                                            {user?.username?.toUpperCase()}
-                                        </h2>
+                                        
                                     </motion.div>
 
                                 </div>

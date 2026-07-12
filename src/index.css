@@ -46,3 +46,221 @@ body {
     z-index:99997;
     filter:blur(1px);
 }
+
+:root {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+body {
+  color: var(--foreground);
+  background: #0a0a0a;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Back to Top Button */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 100;
+}
+
+.back-to-top:hover {
+  background: #fff;
+  color: #000;
+  transform: translateY(-3px);
+}
+
+/* ========== CONTACT SECTION - CLEAN HOVER EFFECTS ========== */
+
+.contact-line {
+  display: block;
+  padding: 4px 0;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: default;
+  margin: 2px 0;
+}
+
+.contact-line:hover {
+  transform: translateX(6px);
+}
+
+.contact-name {
+  display: inline;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.contact-line:hover .contact-name {
+  color: #5ee1e6 !important;
+  text-shadow: 
+    0 0 20px rgba(94, 225, 230, 0.4),
+    0 0 40px rgba(94, 225, 230, 0.2),
+    0 0 80px rgba(94, 225, 230, 0.1);
+}
+
+.contact-separator {
+  display: inline;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  color: #555;
+  padding: 0 4px;
+}
+
+.contact-line:hover .contact-separator {
+  color: #5ee1e6;
+  text-shadow: 0 0 20px rgba(94, 225, 230, 0.3);
+}
+
+.contact-number {
+  display: inline;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  color: #fff;
+  font-weight: 400;
+  font-size: 15px;
+}
+
+.contact-line:hover .contact-number {
+  color: #5ee1e6 !important;
+  text-shadow: 
+    0 0 20px rgba(94, 225, 230, 0.4),
+    0 0 40px rgba(94, 225, 230, 0.2),
+    0 0 80px rgba(94, 225, 230, 0.1);
+}
+
+/* ========== HYPERLINKS - VIBRANT GLOW EFFECT ========== */
+
+.footer-link {
+  display: inline-block;
+  padding: 10px 24px;
+  border-radius: 50px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  backdrop-filter: blur(10px);
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-shadow: 0 0 0 transparent;
+  cursor: pointer;
+}
+
+/* Animated vibrant gradient border */
+.footer-link::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50px;
+  padding: 3px;
+  background: linear-gradient(135deg, #5ee1e6, #7b2ffc, #ff6b6b, #f9ca24, #00ff88, #5ee1e6);
+  background-size: 400% 400%;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  animation: gradientShift 1s ease-in-out infinite;
+}
+
+/* Bright inner glow layer */
+.footer-link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50px;
+  background: radial-gradient(circle at center, rgba(94, 225, 230, 0.3), rgba(123, 47, 252, 0.2), rgba(255, 107, 107, 0.1), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.footer-link:hover {
+  transform: translateY(-5px) scale(1.06);
+  background: rgba(94, 225, 230, 0.12);
+  border-color: rgba(94, 225, 230, 0.3);
+  box-shadow: 
+    0 15px 50px rgba(94, 225, 230, 0.35),
+    0 0 80px rgba(123, 47, 252, 0.25),
+    0 0 120px rgba(255, 107, 107, 0.15),
+    0 0 200px rgba(94, 225, 230, 0.1);
+  color: #fff;
+  text-shadow: 
+    0 0 30px rgba(94, 225, 230, 0.5),
+    0 0 60px rgba(123, 47, 252, 0.3),
+    0 0 100px rgba(255, 107, 107, 0.2);
+}
+
+.footer-link:hover::before {
+  opacity: 1;
+}
+
+.footer-link:hover::after {
+  opacity: 1;
+}
+
+.footer-link:hover {
+  animation: vibrantPulse 0.8s ease-in-out 2;
+}
+
+@keyframes vibrantPulse {
+  0% {
+    box-shadow: 0 15px 50px rgba(94, 225, 230, 0.35);
+  }
+  50% {
+    box-shadow: 
+      0 15px 70px rgba(94, 225, 230, 0.5),
+      0 0 100px rgba(123, 47, 252, 0.35),
+      0 0 150px rgba(255, 107, 107, 0.2);
+  }
+  100% {
+    box-shadow: 0 15px 50px rgba(94, 225, 230, 0.35);
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 100% 0%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  75% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ========== LOGO GLOW ========== */
+
+.logo-glow {
+  filter: drop-shadow(0 0 20px rgba(94, 225, 230, 0.3));
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.logo-glow:hover {
+  filter: drop-shadow(0 0 40px rgba(94, 225, 230, 0.6)) drop-shadow(0 0 80px rgba(94, 225, 230, 0.2));
+  transform: scale(1.05);
+}
