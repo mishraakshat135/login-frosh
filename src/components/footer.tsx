@@ -28,7 +28,7 @@ export default function Home() {
         padding: "40px 30px 20px", 
         position: "relative", 
         zIndex: 0,
-        minHeight: "60vh",
+        minHeight: "0vh",
         overflow: "hidden",
         backgroundColor: "#0a0a0a"
       }}>
