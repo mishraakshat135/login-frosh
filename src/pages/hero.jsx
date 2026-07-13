@@ -9,8 +9,8 @@ import Sponsors from "./sponsors"
 import { gsap, ScrollTrigger } from "../lib/gsap"
 
 const user = JSON.parse(localStorage.getItem("user"));
-const FRAME_COUNT = 241;
-const FRAME_PATH = (i) => `/better_webp_frames/frame_${String(i).padStart(3, '0')}.webp`;
+const FRAME_COUNT = 457;
+const FRAME_PATH = (i) => `/frames_2/frame_${String(i).padStart(6, '0')}.png`;
 
 export default function Hero({ scrollHeight = '400vh' }) {
     const wrapperRef = useRef(null);
@@ -92,12 +92,12 @@ export default function Hero({ scrollHeight = '400vh' }) {
 
                 drawFrame(frameIndex)
 
-                if (frameIndex >= 200 && !welcomeRef.current) {
+                if (frameIndex >= 400 && !welcomeRef.current) {
                     welcomeRef.current = true;
                     setShowWelcome(true);
                 }
 
-                if (frameIndex < 200 && welcomeRef.current) {
+                if (frameIndex < 400 && welcomeRef.current) {
                     welcomeRef.current = false;
                     setShowWelcome(false);
                 }
