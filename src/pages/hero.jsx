@@ -10,7 +10,7 @@ import { gsap, ScrollTrigger } from "../lib/gsap"
 
 const user = JSON.parse(localStorage.getItem("user"));
 const FRAME_COUNT = 457;
-const FRAME_PATH = (i) => `/frames_2/frame_${String(i).padStart(6, '0')}.png`;
+const FRAME_PATH = (i) => `/frames_2/frame_${String(i).padStart(6, '0')}.webp`;
 
 export default function Hero({ scrollHeight = '400vh' }) {
     const wrapperRef = useRef(null);

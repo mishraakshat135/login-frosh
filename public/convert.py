@@ -1,8 +1,8 @@
 from PIL import Image
 from pathlib import Path
 
-input_folder = Path(r"C:\Users\ASUS\Desktop\projects building\frosh login\freshers side\public\campus_images2")
-output_folder = Path(r"C:\Users\ASUS\Desktop\projects building\frosh login\freshers side\public\campus_images")
+input_folder = Path(r"C:\Users\ASUS\Desktop\projects building\frosh login\freshers side\public\frames_2_png")
+output_folder = Path(r"C:\Users\ASUS\Desktop\projects building\frosh login\freshers side\public\frames_2")
 output_folder.mkdir(exist_ok=True)
 
 extensions = ["*.jpg", "*.png", "*jpeg"]
